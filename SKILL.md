@@ -60,12 +60,12 @@ pip install jieba openpyxl
 
 若用户环境中 jieba（中文分词）或 openpyxl（Excel 读取）未安装，使用以下命令安装：
 ```bash
-C:/Users/PC/.workbuddy/binaries/python/versions/3.13.12/python.exe -m pip install jieba openpyxl -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+python -m pip install jieba openpyxl
 ```
 
 安装后验证：
 ```bash
-C:/Users/PC/.workbuddy/binaries/python/versions/3.13.12/python.exe -c "import jieba; import openpyxl; print('OK')"
+python -c "import jieba; import openpyxl; print('OK')"
 ```
 
 ### Phase 2: 数据接收
@@ -94,10 +94,10 @@ C:/Users/PC/.workbuddy/binaries/python/versions/3.13.12/python.exe -c "import ji
 调用分析脚本，传递文件路径：
 
 ```bash
-C:/Users/PC/.workbuddy/binaries/python/versions/3.13.12/python.exe "{SKILL_BASE_DIR}/scripts/analyze.py" "<文件路径>"
+python "{baseDir}/scripts/analyze.py" "<文件路径>"
 ```
 
-其中 `{SKILL_BASE_DIR}` 替换为实际 Skill 目录路径（默认为 `~/.workbuddy/skills/product-table-analyzer`）。
+其中 `{baseDir}` 为 Skill 安装目录（WorkBuddy 中默认为 `~/.workbuddy/skills/product-table-analyzer`，ClawHub 运行时自动替换）。
 
 脚本输出为结构化的 JSON，包含以下顶层字段：
 - `meta` — 文件元信息（行数、识别到的列）
